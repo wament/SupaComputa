@@ -1,8 +1,7 @@
 CC = gcc
 FFLAGS = -O3 -Wall -std=c99
 LFFLAG =
-OBJECTS = main.o \
-matrix.o
+OBJECTS = main.o trimatrix.o Hessenberg.o GetShift.o FindZero.o QRA.o QRdecomp.o
 
 .PHONY: clean
 

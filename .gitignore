@@ -1,2 +1,2 @@
-#ignore ALL .vs files
-#.vs
+#ignore ALL .vs/
+.vs/
