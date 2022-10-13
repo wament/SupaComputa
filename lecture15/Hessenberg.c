@@ -1,5 +1,15 @@
 #include "trimatrix.h"
+#include "stdlib.h"
+#include "math.h"
+#include "assert.h"
 #include "matrix.h"
+static inline double sign(const double x)
+{
+   if (x<0.0)
+   { return -1.0; }
+   else
+   { return  1.0; }
+}
 
 void Hessenberg(const matrix* Ain, trimatrix* T)
 {
@@ -77,9 +87,4 @@ void Hessenberg(const matrix* Ain, trimatrix* T)
 	tset(T, N, N - 1, mget(A, N, N - 1));
 	tset(T, N, N, mget(A, N, N));
 	
-	delete_vector(&x);
-	delete_vector(&v);
-	delete_vector(&vTH1);
-	delete_vector(&Hv2);
-	delete_matrix(&A);
 }

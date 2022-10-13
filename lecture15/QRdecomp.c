@@ -1,6 +1,7 @@
-#include <stdlib.h>
-#include <math.h>
-#include <assert.h>
+#include "stdlib.h"
+#include "math.h"
+#include "assert.h"
+#include "trimatrix.h"
 #include "matrix.h"
 /*
 This routine will perform QR factorization A = QR to get Q and R of A!
@@ -53,7 +54,6 @@ matrix Householder(matrix* R)
 	 }
    }
 
-   delete_vector(&vtR);
    return V;
 }
 

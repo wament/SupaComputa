@@ -3,6 +3,7 @@
 #include <assert.h>
 #include <math.h>
 #include "trimatrix.h"
+#include "matrix.h"
 
 trimatrix new_trimatrix(const int rows)
 {
@@ -409,7 +410,7 @@ trimatrix matrix_mult_to_trimatrix(const matrix* A, const matrix* B)
 	 }
    }
 
-   delete_matrix(&Btranspose);
+   
    
    return C;
 }
