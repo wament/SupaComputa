@@ -27,6 +27,8 @@ void Hessenberg(const matrix* Ain, trimatrix* T)
 	vector vTH1 = new_vector(N);
 	vector Hv2 = new_vector(N);
 	// Main loop
+
+	
 	for (int k = 1; k <= (N - 2); k++)
 	{
 		// Part 1: Construct reflector vector "v"
@@ -77,6 +79,7 @@ void Hessenberg(const matrix* Ain, trimatrix* T)
 			}
 	}
 
+	
 	tset(T, 1, 1, mget(A, 1, 1));
 	tset(T, 1, 2, mget(A, 1, 2));
 	for (int i = 2; i <= (N - 1); i++)
@@ -87,5 +90,9 @@ void Hessenberg(const matrix* Ain, trimatrix* T)
 	}
 	tset(T, N, N - 1, mget(A, N, N - 1));
 	tset(T, N, N, mget(A, N, N));
-	printf("hit inside hess\n");
+	delete_vector(&x);
+   	delete_vector(&v);
+   	delete_vector(&vTH1);
+   	delete_vector(&Hv2);
+   	delete_matrix(&A);
 }
