@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Copy/paste this job script into a text file and submit with the command:
+#    sbatch thefilename
+# job standard output will go to the file slurm-%j.out (where %j is the job ID)
+
+#SBATCH --time=00:15:00   # walltime limit (HH:MM:SS)
+#SBATCH --nodes=1   # number of nodes
+#SBATCH --ntasks-per-node=36   # 36 processor core(s) per node 
+#SBATCH --partition=class-short    # class node(s)
+#SBATCH --job-name="424-lect19"
+
+# LOAD MODULES, INSERT CODE, AND RUN YOUR PROGRAMS HERE
+module load intel
+
+mpirun -np 2 ./main.exe 32000000 >> output.data
+mpirun -np 4 ./main.exe 32000000 >> output.data
+mpirun -np 8 ./main.exe 32000000 >> output.data
+mpirun -np 16 ./main.exe 32000000 >> output.data
+mpirun -np 32 ./main.exe 32000000 >> output.data
+
+mpirun -np 2 ./main2.exe 0 1 32000000 >> outputTrap.data
+mpirun -np 4 ./main2.exe 0 1 32000000 >> outputTrap.data
+mpirun -np 8 ./main2.exe 0 1 32000000 >> outputTrap.data
+mpirun -np 16 ./main2.exe 0 1 32000000 >> outputTrap.data
+mpirun -np 32 ./main2.exe 0 1 32000000 >> outputTrap.data
